@@ -1,0 +1,14 @@
+postgresql_default_auth_method: "trust"
+
+# List of users to be created (optional)
+postgresql_users:
+  - name: '{{project_name}}'
+    pass: pass
+    encrypted: no       # denotes if the password is already encrypted.
+
+# List of user privileges to be applied (optional)
+postgresql_user_privileges:
+  - name: '{{project_name}}'                   # user name
+    db: '{{project_name}}'                  # database
+    priv: "ALL"                 # privilege string format: example: INSERT,UPDATE/table:SELECT/anothertable:ALL
+    role_attr_flags: "CREATEDB" # role attribute flags
